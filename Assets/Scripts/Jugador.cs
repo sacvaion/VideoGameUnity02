@@ -28,6 +28,7 @@ public class Jugador : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.tag == "Suelo")
         {
             animator.SetBool("IsJumping", false);
