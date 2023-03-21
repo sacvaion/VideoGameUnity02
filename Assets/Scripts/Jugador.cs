@@ -5,9 +5,11 @@ using UnityEngine;
 public class Jugador : MonoBehaviour
 {
     public float jumpForce;
+    public GameManager gameManager;
 
     private Rigidbody2D rigidbody2D;
     private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,11 @@ public class Jugador : MonoBehaviour
         if (collision.gameObject.tag == "Suelo")
         {
             animator.SetBool("IsJumping", false);
+        }
+
+        if (collision.gameObject.tag == "Obstaculo")
+        {
+            gameManager.gameOver = true;
         }
     }
 }
