@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject menuPrincipal;
     public GameObject menuGameOver;
+    public GameObject uiScore;
+    public Text pointText;
 
     public float velocidad = 2;
     public GameObject col;
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public bool gameOver = false;
     public bool start = false;
+
+    private int points=0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +41,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //uiScore.SetActive(false) ;
         if (!start)
         {
             if (Input.GetKeyDown(KeyCode.X))
              {
                 start = true;
+                //uiScore.SetActive(true);
             }
         }
 
@@ -79,5 +86,12 @@ public class GameManager : MonoBehaviour
                 lstObstaculos[i].transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * velocidad;
             }
         }
+    }
+    
+
+    public void increasePoints()
+    {
+        points++;
+        pointText.text ="SCORE : " + points.ToString();
     }
 }
