@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject menuPrincipal;
     public GameObject menuGameOver;
     public GameObject uiScore;
-    public Text pointText;
+    public TextMeshProUGUI bestPoint;
+    public TextMeshProUGUI pointText;
 
     public float velocidad = 2;
     public GameObject col;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public bool start = false;
 
     private int points=0;
+    private int maxPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         //crear piedras
         lstObstaculos.Add(Instantiate(piedra01,new Vector2(14,-2),Quaternion.identity));
         lstObstaculos.Add(Instantiate(piedra02,new Vector2(18,-2),Quaternion.identity));
+        bestPoint.text = "BEST : " + getMaxScore().ToString();
     }
 
     // Update is called once per frame
@@ -87,11 +90,25 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
 
     public void increasePoints()
     {
         points++;
         pointText.text ="SCORE : " + points.ToString();
+        if(points >= getMaxScore())
+        {
+            bestPoint.text = "BEST : "+ points.ToString();
+            setMaxScore(points);
+        }
+    }
+
+    public int getMaxScore()
+    {
+        return PlayerPrefs.GetInt("Max Points",0);
+    }
+
+    public void setMaxScore(int currentPoints)
+    {
+        PlayerPrefs.SetInt("Max Points", currentPoints);
     }
 }
