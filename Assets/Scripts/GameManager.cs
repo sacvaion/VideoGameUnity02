@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         //crear piedras
         lstObstaculos.Add(Instantiate(piedra01,new Vector2(14,-2),Quaternion.identity));
         lstObstaculos.Add(Instantiate(piedra02,new Vector2(18,-2),Quaternion.identity));
-        bestPoint.text = "BEST : " + getMaxScore().ToString();
+        bestPoint.text = "BEST : " + GetMaxScore().ToString();
     }
 
     // Update is called once per frame
@@ -91,23 +91,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void increasePoints()
+    public void IncreasePoints()
     {
         points++;
         pointText.text ="SCORE : " + points.ToString();
-        if(points >= getMaxScore())
+        if(points >= GetMaxScore())
         {
             bestPoint.text = "BEST : "+ points.ToString();
-            setMaxScore(points);
+            SetMaxScore(points);
         }
     }
 
-    public int getMaxScore()
+    public int GetMaxScore()
     {
         return PlayerPrefs.GetInt("Max Points",0);
     }
 
-    public void setMaxScore(int currentPoints)
+    public void SetMaxScore(int currentPoints)
     {
         PlayerPrefs.SetInt("Max Points", currentPoints);
     }

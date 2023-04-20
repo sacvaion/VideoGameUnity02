@@ -857,7 +857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pulsa x para reiniciar
+  m_text: Pulsa  'x'  para reiniciar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8587d5315d25c3478ab0e32ed8ea8e0, type: 2}
   m_sharedMaterial: {fileID: 8068506645849962215, guid: f8587d5315d25c3478ab0e32ed8ea8e0, type: 2}
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe70e06db1734b4a8442afc07ebe1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 200
+  jumpForce: 300
   gameManager: {fileID: 1310872182}
 --- !u!1 &1884235237
 GameObject:
@@ -1667,7 +1667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: tutorial 2d
+  m_text: Carlos   Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8587d5315d25c3478ab0e32ed8ea8e0, type: 2}
   m_sharedMaterial: {fileID: 8068506645849962215, guid: f8587d5315d25c3478ab0e32ed8ea8e0, type: 2}
